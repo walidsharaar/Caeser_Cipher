@@ -1,16 +1,26 @@
-# This is a sample Python script.
+# Project Start
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+# list of the alphabets
 
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z','a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+select = input("Type'encode' to encrypt or type 'decode' to decrypt :\n ")
+message = input("Type your message:\n")
+shift= int(input("Enter number of  swap:\n"))
 
+# encryption function
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+def encrypt (message_para , shift_para):
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    # encoded  text
+    cipher_text = ""
+
+    # shift the character
+    for i in message_para:
+        location_letter= alphabet.index(i)
+        new_location = location_letter + shift_para
+        new_letter = alphabet[new_location]
+        cipher_text += new_letter
+    print(f"The encode text is {cipher_text}")
+
+encrypt(message_para=message,shift_para=shift)
