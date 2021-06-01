@@ -6,7 +6,7 @@ alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n'
 
 select = input("Type'encode' to encrypt or type 'decode' to decrypt :\n ")
 message = input("Type your message:\n")
-shift= int(input("Enter number of  swap:\n"))
+shift = int(input("Enter number of  swap:\n"))
 
 # encryption function
 
@@ -19,8 +19,21 @@ def encrypt (message_para , shift_para):
     for i in message_para:
         location_letter= alphabet.index(i)
         new_location = location_letter + shift_para
-        new_letter = alphabet[new_location]
-        cipher_text += new_letter
+        cipher_text += alphabet[new_location]
     print(f"The encode text is {cipher_text}")
 
-encrypt(message_para=message,shift_para=shift)
+
+def decrypt(cipher_text,shift_para):
+    decode_text= ""
+    for i in cipher_text:
+        location_letter = alphabet.index(i)
+        new_location  =location_letter-shift_para
+        decode_text +=alphabet[new_location]
+    print(f"The decode message is {decode_text}")
+
+
+if select == "encode" :
+    encrypt(message_para=message,shift_para=shift)
+elif select == "decode":
+    decrypt(cipher_text=message,shift_para=shift)
+
